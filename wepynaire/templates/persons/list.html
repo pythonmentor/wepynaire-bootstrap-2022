@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
 
 {% block outer_content %}
-<main class="align-self-center flex-grow-1 d-flex align-items-center">
-    <a class="btn btn-primary" href="{% url 'persons:create' %}">Nouvelle personne</a>
+<main class="container flex-grow-1 mt-3 d-flex flex-column align-items-center">
+    <div>
+        <a class="btn btn-primary" href="{% url 'persons:create' %}">Nouvelle personne</a>
+    </div>
+    <p class="mt-3">
+        {% if persons %}
+        <h1>Les personnes inscrites sont:</h1>
+        {% endif %}   
+    </p>
+        {% for person in persons %}
+            {% if forloop.first %}<ul>{% endif %}
+            <li>{{ person.name }} &lt;{{ person.email }}&gt;</li>
+            {% if forloop.last %}</ul>{% endif %}
+        {% empty %}
+            <p>Il n'y pas encore de personne inscrite sur le site !</p>
+        {% endfor %}
 </main>
 {% endblock outer_content %}
