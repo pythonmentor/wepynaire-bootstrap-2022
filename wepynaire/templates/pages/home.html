@@ -1,1 +1,13 @@
 {% extends 'base.html' %}
+
+{% block outer_content %}
+<main class="container">
+    <div class="row">
+        {% with ''|center:12 as range %}
+            {% for _ in range %}
+                {% include 'fragments/card.html' with i=forloop.counter %}
+            {% endfor %}
+        {% endwith %}
+    </div>
+</main>
+{% endblock outer_content %}
