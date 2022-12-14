@@ -8,21 +8,23 @@
     <title>{% block title %}Accueil{% endblock title %}</title>
     {% block head_scripts %}{% endblock head_scripts %}
     {% block head_styles %}
-        <link rel="stylesheet" href="{% static '/css/styles.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     {% endblock head_styles %}
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     {% block navigation %}
         {% include 'fragments/navigation.html' %}
     {% endblock navigation %}
 
     {% block outer_content %}
-        <main>{% block content %}dans main{% endblock content %}</main>
+        <main>{% block content %}{% endblock content %}</main>
     {% endblock outer_content %}
 
     {% block footer %}
         {% include 'fragments/footer.html' %}
     {% endblock footer %}
-    {% block bottom_scripts %}{% endblock bottom_scripts %}
+    {% block bottom_scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    {% endblock bottom_scripts %}
 </body>
 </html>
