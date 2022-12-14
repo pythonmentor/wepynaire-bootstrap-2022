@@ -1,29 +1,16 @@
 {% extends 'base.html' %}
 
-{% load widget_tweaks %}
+{% load crispy_forms_tags %}
 
 {% block outer_content %}
 <main class="container ">
     <h1>Créer une nouvelle personne</h1>
     <form action="post">
         {% csrf_token %}
-
-        {% for hidden in form.hidden_fields %}
-            {{ hidden }}
-        {% endfor %}
-
-        {% for field in form.visible_fields %}
-            <div class="row">
-                <label for="{{ field.id_for_label }}" class="col-md-2">{{ field.label }}</label>
-                {{ field|add_class:'form-control' }}
-                {% for error in field.errors %}
-                    <div class="form-text">{{ error }}</span>
-                {% endfor %}
-            </div>
-        {% endfor %}
-
-        <button type="submit" class="btn btn-primary">Créer</button>
-        <a href="{% url 'persons:list' %}" class="btn btn-danger">Abandonner</a>
+        {{ form|crispy }}
+        
+        <button type="submit" class="btn btn-success">Créer</button> 
+        <a href="{% url 'persons:list' %}" class="btn btn-danger">Abandonner</a>    
     </form>
 </main>
 {% endblock outer_content %}
