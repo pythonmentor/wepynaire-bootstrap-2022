@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "wepynaire",
     "wepynaire.pages",
+    "wepynaire.persons",
 ]
 
 MIDDLEWARE = [

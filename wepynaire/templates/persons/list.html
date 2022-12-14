@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block outer_content %}
+<main class="align-self-center flex-grow-1 d-flex align-items-center">
+    <a class="btn btn-primary" href="{% url 'persons:create' %}">Nouvelle personne</a>
+</main>
+{% endblock outer_content %}
