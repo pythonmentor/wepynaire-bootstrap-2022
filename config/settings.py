@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "wepynaire",
+    "wepynaire.pages",
 ]
 
 MIDDLEWARE = [
